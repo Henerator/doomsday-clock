@@ -1,0 +1,104 @@
+:root {
+  --watch-size: 400px;
+  --watch-border-size: 70px;
+  --watch-dot-size: 70px;
+  --clr-white: var(--clr-white);
+  --clr-dark: #333;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 1.125rem;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  justify-content: center;
+  background-color: var(--clr-white);
+}
+
+.wrapper {
+  width: var(--watch-size);
+}
+
+.watch-container {
+  overflow: hidden;
+  width: var(--watch-size);
+  height: var(--watch-size);
+  max-width: 100%;
+  margin-bottom: 25px;
+}
+
+.watch {
+  position: relative;
+  width: calc(var(--watch-size) * 2);
+  height: calc(var(--watch-size) * 2);
+  border: var(--watch-border-size) solid var(--clr-dark);
+  border-radius: 50% 0 0 0;
+}
+
+.watch__dot {
+  position: absolute;
+  width: var(--watch-dot-size);
+  height: var(--watch-dot-size);
+  background-color: var(--clr-dark);
+  border-radius: 50%;
+}
+
+.watch__dot:nth-child(1) {
+  bottom: 50%;
+  left: calc(var(--watch-dot-size) / 2);
+}
+
+.watch__dot:nth-child(2) {
+  bottom: 66%;
+  left: calc(6% + var(--watch-dot-size) / 2);
+}
+
+.watch__dot:nth-child(3) {
+  top: calc(6% + var(--watch-dot-size) / 2);
+  right: 66%;
+}
+
+.watch__dot:nth-child(4) {
+  top: calc(var(--watch-dot-size) / 2);
+  right: 50%;
+}
+
+.watch__hand {
+  position: absolute;
+  bottom: 50%;
+  right: 50%;
+  width: calc(var(--watch-dot-size) / 4);
+  background-color: var(--clr-dark);
+}
+
+.watch-hand_hour {
+  height: calc(var(--watch-size) - var(--watch-border-size) - var(--watch-dot-size) * 2);
+}
+
+.watch-hand_minute {
+  height: calc(var(--watch-size) - var(--watch-border-size) - var(--watch-dot-size) * 1.5);
+  transform-origin: bottom;
+  rotate: -2deg;
+}
+
+.remaining-time {
+  padding: 5px 20px;
+  font-size: 2rem;
+  text-align: right;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 1px var(--clr-dark);
+  border-bottom: 15px solid var(--clr-dark);
+}
